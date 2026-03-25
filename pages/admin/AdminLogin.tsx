@@ -7,8 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { Toaster } from "@/components/ui/toaster";
- import { Loader2, Lock } from "lucide-react";
+import { Loader2, Lock } from "lucide-react";
 
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
@@ -20,7 +19,6 @@ const AdminLogin = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Validate inputs
     if (!email || !password) {
       toast({ 
         title: "Validation Error", 
@@ -33,16 +31,12 @@ const AdminLogin = () => {
     setLoading(true);
 
     try {
-      console.log("Attempting login...");
-      
       const { data, error } = await supabase.auth.signInWithPassword({ 
         email, 
         password 
       });
 
       if (error) {
-        console.error("Auth error:", error);
-        
         let errorMessage = error.message;
         if (error.message.includes("Invalid login credentials")) {
           errorMessage = "Invalid email or password. Please try again.";
@@ -69,10 +63,6 @@ const AdminLogin = () => {
         }, 1000);
       }
     } catch (err: any) {
-      console.error("Connection error:", err);
-      
-      // Always show toast for any error
-      let errorTitle = "Connection Error";
       let errorMessage = "Failed to connect to server. Please check your internet connection.";
       
       if (err.message === "Failed to fetch") {
@@ -82,7 +72,7 @@ const AdminLogin = () => {
       }
       
       toast({ 
-        title: errorTitle, 
+        title: "Connection Error", 
         description: errorMessage, 
         variant: "destructive" 
       });
@@ -133,12 +123,14 @@ const AdminLogin = () => {
               disabled={loading}
             >
               {loading ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : "Sign In"}
+              {!loading && "Sign In"}
             </Button>
           </form>
           
           <div className="mt-6 p-4 bg-slate-800/50 rounded-lg">
             <p className="text-xs text-slate-400 text-center">
-             School Management System Admin Login. Use your admin credentials to access the dashboard. If you have trouble logging in, please contact support.
+              School Management System Admin Login. Use your admin credentials to access the dashboard. 
+              If you have trouble logging in, please contact support.
             </p>
           </div>
         </CardContent>

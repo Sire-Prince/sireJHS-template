@@ -1,13 +1,12 @@
 "use client";
-import { Helmet } from "react-helmet-async";
+
 import { motion } from "framer-motion";
-import { Calendar, Trophy, Bell, Megaphone, ArrowRight, Clock, Search } from "lucide-react";
-import Link from "next/link";
+import { Calendar, Trophy, Bell, Megaphone, ArrowRight, Clock, Search, LinkIcon } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Input } from "@/components/ui/input";
-import sportsFieldImg from "@/assets/sports-field.jpg";
-import studentsImg from "@/assets/students-celebrating.jpg";
+import Image from "next/image";
+import Link from "next/link";
 
 const News = () => {
   const featuredNews = {
@@ -15,7 +14,7 @@ const News = () => {
     excerpt: "Our brilliant science students showcased exceptional knowledge and teamwork to secure a spot in the regional finals of the National Science & Maths Quiz.",
     date: "January 2, 2026",
     category: "Achievement",
-    image: studentsImg,
+    image: "/assets/students-celebrating.jpg",
   };
 
   const newsItems = [
@@ -33,7 +32,7 @@ const News = () => {
       date: "December 20, 2025",
       category: "Events",
       icon: Calendar,
-      image: sportsFieldImg,
+      image: "/assets/sports-field.jpg",
     },
     {
       title: "PTA Meeting Notice",
@@ -49,7 +48,7 @@ const News = () => {
       date: "December 10, 2025",
       category: "Achievement",
       icon: Trophy,
-      image: studentsImg,
+      image: "/assets/students-celebrating.jpg",
     },
     {
       title: "New Computer Laboratory Commissioned",
@@ -78,19 +77,11 @@ const News = () => {
 
   return (
     <>
-      <Helmet>
-        <title>News & Events | sireSCH Updates - Anlo Senior High School</title>
-        <meta
-          name="description"
-          content="Stay updated with the latest news, events, and announcements from Anlo Senior High School. Academic achievements, sports, and community updates."
-        />
-      </Helmet>
-
       <div className="min-h-screen">
         <Header />
         <main>
           {/* Hero Section */}
-          <section className="pt-32 pb-12 px-2 sm:px-12  bg-primary">
+          <section className="pt-32 pb-12 px-2 sm:px-12 bg-primary">
             <div className="container mx-auto px-6 lg:px-8">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -112,7 +103,7 @@ const News = () => {
           </section>
 
           {/* Search Bar */}
-          <section className="py-6 px-2 sm:px-12  bg-background border-b border-border">
+          <section className="py-6 px-2 sm:px-12 bg-background border-b border-border">
             <div className="container mx-auto px-6 lg:px-8">
               <div className="max-w-xl mx-auto relative">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
@@ -125,7 +116,7 @@ const News = () => {
           </section>
 
           {/* Featured News */}
-          <section className="py-12 px-2 sm:px-12  bg-background">
+          <section className="py-12 px-2 sm:px-12 bg-background">
             <div className="container mx-auto px-6 lg:px-8">
               <motion.article
                 initial={{ opacity: 0, y: 30 }}
@@ -134,10 +125,11 @@ const News = () => {
                 className="grid lg:grid-cols-2 gap-8 items-center bg-card rounded-2xl overflow-hidden border border-border shadow-soft"
               >
                 <div className="relative h-64 lg:h-full">
-                  <img
+                  <Image
                     src={featuredNews.image}
                     alt={featuredNews.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                   <div className="absolute top-4 left-4">
                     <span className="px-3 py-1 rounded-full bg-gold text-navy-dark text-sm font-semibold">
@@ -174,7 +166,7 @@ const News = () => {
           </section>
 
           {/* News Grid & Events Sidebar */}
-          <section className="py-12 px-2 sm:px-12   bg-cream">
+          <section className="py-12 px-2 sm:px-12 bg-cream">
             <div className="container mx-auto px-6 lg:px-8">
               <div className="grid lg:grid-cols-3 gap-8">
                 {/* News List */}
@@ -189,12 +181,13 @@ const News = () => {
                       transition={{ delay: index * 0.1 }}
                       className="bg-card rounded-xl overflow-hidden border border-border shadow-soft hover:border-gold/30 transition-all group"
                     >
-                      <Linkhref={`/news/${item.title.toLowerCase().replace(/\s+/g, '-')}`} className="flex flex-col sm:flex-row">
-                        <div className="sm:w-48 h-40 sm:h-auto flex-shrink-0">
-                          <img 
+                      <Link href={`/news/${item.title.toLowerCase().replace(/\s+/g, '-')}`} className="flex flex-col sm:flex-row">
+                        <div className="sm:w-48 h-40 sm:h-auto flex-shrink-0 relative">
+                          <Image 
                             src={item.image} 
                             alt={item.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-300"
                           />
                         </div>
                         <div className="flex-1 p-6">

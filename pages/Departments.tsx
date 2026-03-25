@@ -1,12 +1,12 @@
 "use client";
-import { Helmet } from "react-helmet-async";
+
 import { motion } from "framer-motion";
 import { Leaf, Beaker, Calculator, Palette, Users, Award, BookOpen, Microscope, TrendingUp, Brush } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import scienceLabImg from "@/assets/science-lab.jpg";
+import Image from "next/image";
 
 const Departments = () => {
   const departments = [
@@ -94,21 +94,18 @@ const Departments = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Departments | Academic Departments - Anlo Senior High School</title>
-        <meta
-          name="description"
-          content="Explore ANSECO's academic departments: Agriculture, Science, Business, and Arts. Each department offers specialized programs with experienced faculty."
-        />
-      </Helmet>
-
       <div className="min-h-screen">
         <Header />
         <main>
           {/* Hero Section */}
-          <section className="relative pt-32 pb-20 px-2 sm:px-12  bg-primary overflow-hidden">
+          <section className="relative pt-32 pb-20 px-2 sm:px-12 bg-primary overflow-hidden">
             <div className="absolute inset-0">
-              <img src={scienceLabImg} alt="ANSECO Departments" className="w-full h-full object-cover opacity-20" />
+              <Image 
+                src="/assets/science-lab.jpg" 
+                alt="ANSECO Departments" 
+                fill
+                className="object-cover opacity-20"
+              />
               <div className="absolute inset-0 bg-gradient-to-b from-primary/80 to-primary" />
             </div>
             <div className="container mx-auto px-6 lg:px-8 relative z-10">
@@ -137,7 +134,7 @@ const Departments = () => {
             <section
               key={dept.id}
               id={dept.id}
-              className={`py-20 px-2 sm:px-12  ${index % 2 === 0 ? "bg-background" : "bg-cream"}`}
+              className={`py-20 px-2 sm:px-12 ${index % 2 === 0 ? "bg-background" : "bg-cream"}`}
             >
               <div className="container mx-auto px-6 lg:px-8">
                 <div className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
@@ -206,7 +203,7 @@ const Departments = () => {
           ))}
 
           {/* CTA Section */}
-          <section className="py-20 px-2 sm:px-12  bg-primary text-primary-foreground">
+          <section className="py-20 px-2 sm:px-12 bg-primary text-primary-foreground">
             <div className="container mx-auto px-6 lg:px-8 text-center">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}

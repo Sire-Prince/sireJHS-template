@@ -1,14 +1,12 @@
 "use client";
-import { Helmet } from "react-helmet-async";
+
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Building, Microscope, Library, Dumbbell, Home, Wifi, TreePine, Utensils, ArrowRight, Star, MapPin } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import heroCampus from "@/assets/hero-campus.jpg";
-import scienceLabImg from "@/assets/science-lab.jpg";
-import sportsFieldImg from "@/assets/sports-field.jpg";
 
 const Facilities = () => {
   const mainFacilities = [
@@ -17,21 +15,21 @@ const Facilities = () => {
       name: "Modern Dormitories",
       description: "Our male and female hostels provide safe, well-ventilated accommodation with modern amenities. Each dormitory features study areas, common rooms, and 24-hour security for a comfortable boarding experience.",
       features: ["Separate male and female blocks", "Well-ventilated rooms", "Study areas", "24-hour security"],
-      image: heroCampus,
+      image: "/assets/hero-campus.jpg",
     },
     {
       icon: Microscope,
       name: "Science Laboratories",
       description: "State-of-the-art Physics, Chemistry, and Biology laboratories equipped with modern apparatus for practical experiments. Our labs support hands-on learning aligned with the WAEC syllabus.",
       features: ["Physics lab with optical equipment", "Chemistry lab with fume hoods", "Biology lab with microscopes", "Safety equipment"],
-      image: scienceLabImg,
+      image: "/assets/science-lab.jpg",
     },
     {
       icon: Dumbbell,
       name: "Sports Complex",
       description: "A full-size football field, basketball and volleyball courts, and athletics track. We believe in holistic education that develops both mind and body.",
       features: ["FIFA-standard football pitch", "Basketball court", "Volleyball court", "Athletics track"],
-      image: sportsFieldImg,
+      image: "/assets/sports-field.jpg",
     },
   ];
 
@@ -70,21 +68,18 @@ const Facilities = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Facilities | Campus Infrastructure - Anlo Senior High School</title>
-        <meta
-          name="description"
-          content="Explore sireSCH's world-class facilities including modern dormitories, science laboratories, sports complex, library, and ICT center in Ghana's Volta Region."
-        />
-      </Helmet>
-
       <div className="min-h-screen">
         <Header />
         <main>
           {/* Hero Section */}
-          <section className="relative pt-32 pb-20 px-2 sm:px-12  bg-primary overflow-hidden">
+          <section className="relative pt-32 pb-20 px-2 sm:px-12 bg-primary overflow-hidden">
             <div className="absolute inset-0">
-              <img src={heroCampus} alt="sireSCH Campus" className="w-full h-full object-cover opacity-20" />
+              <Image 
+                src="/assets/hero-campus.jpg" 
+                alt="sireSCH Campus" 
+                fill
+                className="object-cover opacity-20"
+              />
               <div className="absolute inset-0 bg-gradient-to-b from-primary/80 to-primary" />
             </div>
             <div className="container mx-auto px-6 lg:px-8 relative z-10">
@@ -109,7 +104,7 @@ const Facilities = () => {
           </section>
 
           {/* Main Facilities */}
-          <section className="py-20 px-2 sm:px-12  bg-background">
+          <section className="py-20 px-2 sm:px-12 bg-background">
             <div className="container mx-auto px-6 lg:px-8">
               <div className="text-center mb-16">
                 <motion.div
@@ -139,11 +134,12 @@ const Facilities = () => {
                     }`}
                   >
                     <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                      <div className="relative rounded-2xl overflow-hidden shadow-elevated">
-                        <img
+                      <div className="relative rounded-2xl overflow-hidden shadow-elevated h-80">
+                        <Image
                           src={facility.image}
                           alt={facility.name}
-                          className="w-full h-80 object-cover"
+                          fill
+                          className="object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
                         <div className="absolute bottom-4 left-4 flex items-center gap-2">
@@ -176,7 +172,7 @@ const Facilities = () => {
           </section>
 
           {/* Additional Facilities Grid */}
-          <section className="py-20 px-2 sm:px-12  bg-cream">
+          <section className="py-20 px-2 sm:px-12 bg-cream">
             <div className="container mx-auto px-6 lg:px-8">
               <div className="text-center mb-16">
                 <motion.div
@@ -219,19 +215,20 @@ const Facilities = () => {
           </section>
 
           {/* CTA Section */}
-          <section className="py-20 px-2 sm:px-12  bg-primary">
+          <section className="py-20 px-2 sm:px-12 bg-primary">
             <div className="container mx-auto px-6 lg:px-8 text-center">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-              >     <motion.div
+              >
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/20 text-gold text-sm font-medium mb-6"
-                >                  <MapPin className="w-4 h-4" />
-
+                >
+                  <MapPin className="w-4 h-4" />
                   Virtual Tour
                 </motion.div>
                 <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-foreground mb-6">
@@ -241,24 +238,26 @@ const Facilities = () => {
                   Schedule a visit to see our facilities firsthand and discover why 
                   sireSCH is the preferred choice for education in Ghana.
                 </p>
-                     <section id="tour" className="py-20 px-4 sm:px-14 bg-primary text-primary-foreground">
-            <div className=" mx-auto  ">
-                   <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    className="relative aspect-video rounded-xl overflow-hidden border border-primary-foreground/10"
-                  >
-                    <iframe
-                      src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0"
-                      title=" Campus Tour"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="w-full h-full"
-                    />
-                  </motion.div>
+              </motion.div>
             </div>
-</section>
+          </section>
+
+          {/* Tour Video Section */}
+          <section id="tour" className="py-20 px-4 sm:px-14 bg-primary text-primary-foreground">
+            <div className="container mx-auto px-6 lg:px-8">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="relative aspect-video rounded-xl overflow-hidden border border-primary-foreground/10"
+              >
+                <iframe
+                  src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0"
+                  title="Campus Tour"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
               </motion.div>
             </div>
           </section>

@@ -1,5 +1,5 @@
 "use client";
-import { Helmet } from "react-helmet-async";
+
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, Send, MessageSquare, Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 import Header from "@/components/Header";
@@ -53,20 +53,12 @@ const Contact = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Contact Us | Get in Touch - sireSCH Senior High School</title>
-        <meta
-          name="description"
-          content="Contact sireSCH Senior High School for inquiries about admissions, academics, or general information. Visit our campus in sireSCHga, Volta Region."
-        />
-      </Helmet>
-
       <div className="min-h-screen">
         <Header />
         <main>
           {/* Hero Section */}
           <section className="pt-32 pb-12 px-4 sm:px-12 bg-primary">
-              <div className="container mx-auto px-6 lg:px-8">
+            <div className="container mx-auto px-6 lg:px-8">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -88,7 +80,7 @@ const Contact = () => {
           </section>
 
           {/* Contact Section */}
-          <section className="py-16 px-4 sm:px-12   bg-background">
+          <section className="py-16 px-4 sm:px-12 bg-background">
             <div className="container mx-auto px-6 lg:px-8">
               <div className="grid lg:grid-cols-2 gap-12">
                 {/* Contact Form */}

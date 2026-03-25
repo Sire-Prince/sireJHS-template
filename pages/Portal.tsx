@@ -1,6 +1,6 @@
 "use client";
+
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Lock, User, GraduationCap, Users, Briefcase, ArrowRight, Eye, EyeOff, Shield, Bell, BookOpen, BarChart3 } from "lucide-react";
 import Link from "next/link";
@@ -59,19 +59,11 @@ const Portal = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Portal Login | Student, Parent & Staff Access - sireSCH</title>
-        <meta
-          name="description"
-          content="Access sireSCH's secure portals for students, parents, and staff. View results, attendance, timetables, and receive SMS alerts."
-        />
-      </Helmet>
-
       <div className="min-h-screen">
         <Header />
         <main>
           {/* Hero Section */}
-          <section className="pt-32 pb-12 px-2 sm:px-10  bg-primary">
+          <section className="pt-32 pb-12 px-2 sm:px-10 bg-primary">
             <div className="container mx-auto px-6 lg:px-8">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -94,7 +86,7 @@ const Portal = () => {
           </section>
 
           {/* Portal Selection & Login */}
-          <section className="py-16 px-2 sm:px-10  bg-background">
+          <section className="py-16 px-2 sm:px-10 bg-background">
             <div className="container mx-auto px-6 lg:px-8">
               <div className="max-w-4xl mx-auto">
                 {/* Portal Type Tabs */}
@@ -215,7 +207,7 @@ const Portal = () => {
           </section>
 
           {/* Features */}
-          <section className="py-16 px-2 sm:px-10  bg-cream">
+          <section className="py-16 px-2 sm:px-10 bg-cream">
             <div className="container mx-auto px-6 lg:px-8">
               <div className="text-center mb-12">
                 <h2 className="text-3xl font-display font-bold text-foreground">
@@ -244,7 +236,7 @@ const Portal = () => {
           </section>
 
           {/* Help Section */}
-          <section className="py-16 px-2 sm:px-10  bg-primary text-primary-foreground">
+          <section className="py-16 px-2 sm:px-10 bg-primary text-primary-foreground">
             <div className="container mx-auto px-6 lg:px-8 text-center">
               <h2 className="text-2xl font-display font-bold mb-4">Need Help Accessing Your Portal?</h2>
               <p className="text-primary-foreground/80 mb-6">

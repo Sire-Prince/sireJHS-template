@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -10,17 +10,25 @@ import AcademicsPreview from "@/components/AcademicsPreview";
 import AdmissionsPreview from "@/components/AboutPreview";
 import NewsSection from "@/components/NewsSection";
 import PortalPreview from "@/components/PortalPreview";
-import { useState, useEffect } from "react";
 
-// Animated Counter Component
-const AnimatedCounter = ({ end, suffix = "", duration = 2 }) => {
+// 1. Define Props Type for TypeScript
+interface CounterProps {
+  end: number;
+  suffix?: string;
+  duration?: number;
+}
+
+// 2. Animated Counter Component with Types
+const AnimatedCounter = ({ end, suffix = "", duration = 2 }: CounterProps) => {
   const [count, setCount] = useState(0);
-  const ref = useRef(null);
+  // Added HTMLDivElement type to ref
+  const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   useEffect(() => {
     if (isInView) {
       let start = 0;
+      // Calculate increment based on 60fps
       const increment = end / (duration * 60);
       const timer = setInterval(() => {
         start += increment;
@@ -36,7 +44,7 @@ const AnimatedCounter = ({ end, suffix = "", duration = 2 }) => {
   }, [isInView, end, duration]);
 
   return (
-    <div ref={ref} className="text-4xl md:text-5xl font-bold text-gold mb-2">
+    <div ref={ref} className="text-4xl md:text-5xl font-bold text-white mb-2">
       {count}{suffix}
     </div>
   );
@@ -45,9 +53,10 @@ const AnimatedCounter = ({ end, suffix = "", duration = 2 }) => {
 export default function HomeContent() {
   return (
     <>
+      {/* Note: Ensure HeroSection, NewsSection, etc. are used or removed to avoid unused variable warnings */}
       
       {/* Full Width Animated Counter Banner */}
-      <section className="w-full bg-primary/90  py-16 relative overflow-hidden">
+      <section className="w-full bg-primary/90 py-16 relative overflow-hidden">
         <div className="container mx-auto px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <motion.div

@@ -1,14 +1,12 @@
 "use client";
-import { Helmet } from "react-helmet-async";
+
 import { motion } from "framer-motion";
 import { BookOpen, Beaker, Calculator, Globe, Music, GraduationCap, Star, ArrowRight, Quote, Users } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import scienceLabImg from "@/assets/science-lab.jpg";
-import { fromTheme } from "tailwind-merge";
-import sbc from "@/assets/sbc.pdf";
 
 const Academics = () => {
   const programs = [
@@ -18,16 +16,15 @@ const Academics = () => {
       subjects: ["Physics", "Chemistry", "Biology", "Elective Maths"],
       color: "from-blue-500 to-cyan-500",
     },
-  
     {
       icon: Calculator,
       title: "Business Studies",
       subjects: ["Accounting", "Economics", "Business Management", "Cost Accounting"],
       color: "from-green-500 to-emerald-500",
     },
-      {
+    {
       icon: GraduationCap,
-      title: "Agriculture ",
+      title: "Agriculture",
       subjects: ["Physics", "Chemistry", "Biology", "Elective Maths"],
       color: "from-yellow-500 to-gold",
     },
@@ -86,21 +83,18 @@ const Academics = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Academics | Programs & Success Stories - Anlo Senior High School</title>
-        <meta
-          name="description"
-          content="Explore sireSCH's academic programs including Science, Business, Arts, and Visual Arts. Read inspiring success stories from our alumni."
-        />
-      </Helmet>
-
       <div className="min-h-screen">
         <Header />
         <main>
           {/* Hero Section */}
           <section className="relative pt-32 pb-20 px-2 sm:px-12 bg-primary overflow-hidden">
             <div className="absolute inset-0">
-              <img src={scienceLabImg} alt="sireSCH Science Lab" className="w-full h-full object-cover opacity-20" />
+              <Image 
+                src="/assets/science-lab.jpg"
+                alt="sireSCH Science Lab" 
+                fill
+                className="object-cover opacity-20"
+              />
               <div className="absolute inset-0 bg-gradient-to-b from-primary/60 to-primary" />
             </div>
             <div className="container mx-auto px-6 lg:px-8 relative z-10">
@@ -165,7 +159,7 @@ const Academics = () => {
                       ))}
                     </ul>
                     <Link
-                     href={`/departments#${program.title.toLowerCase().replace(/\s+/g, '-')}`}
+                      href={`/departments#${program.title.toLowerCase().replace(/\s+/g, '-')}`}
                       className="inline-flex items-center gap-2 text-gold font-medium hover:gap-3 transition-all"
                     >
                       Learn More
@@ -319,7 +313,7 @@ const Academics = () => {
                     <Link href="/admissions">Join sireSCH</Link>
                   </Button>
                   <Button variant="hero" size="lg" asChild>
-                    <a href={`${sbc || "#"}`} download  rel="noopener noreferrer">
+                    <a href="@/public//assets/sbc.pdf" download rel="noopener noreferrer">
                       Download SBC
                     </a>
                   </Button>
@@ -333,5 +327,4 @@ const Academics = () => {
     </>
   );
 };
-
 export default Academics;
