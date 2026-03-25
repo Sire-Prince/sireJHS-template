@@ -123,7 +123,6 @@ const AdminLogin = () => {
               disabled={loading}
             >
               {loading ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : "Sign In"}
-              {!loading && "Sign In"}
             </Button>
           </form>
           

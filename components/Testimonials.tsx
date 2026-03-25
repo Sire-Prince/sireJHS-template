@@ -2,148 +2,120 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useCallback, useRef } from "react";
-import { Quote, ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { Quote, ChevronLeft, ChevronRight, Star, Users } from "lucide-react";
 import Image from "next/image";
 
-const testimonials = [
+const parentTestimonials = [
   {
     id: 1,
-    name: "Dr. Edem Adzogenu",
-    role: "Medical Doctor, Korle Bu Teaching Hospital",
-    content: "sireSCH gave me the strong foundation I needed for medical school. The science department's dedication and the school's discipline shaped my career. I'm forever grateful for the opportunities I had.",
+    parentName: "Mrs. Akosua Mensah",
+    studentName: "Yaw Mensah",
+    jhsLevel: "JHS 3",
+    role: "Parent",
+    content: "Since my son joined Sire JHS, his confidence and academic performance have improved tremendously. The teachers are very dedicated and the BECE preparation is top-notch. We are extremely grateful.",
     rating: 5,
-    image: "/assets/testimonial1.jpg",
-    year: "Class of 2008",
+    image: "/assets/parent1.jpg", // Replace with real parent or student photo later
   },
   {
     id: 2,
-    name: "Sena Amedorme",
-    role: "CEO, AgriTech Ghana Ltd",
-    content: "The business skills and agricultural training at sireSCH inspired me to start my own company. Today, we help farmers across Ghana. The school's practical approach made all the difference.",
+    parentName: "Mr. Kwame Osei",
+    studentName: "Abena Osei",
+    jhsLevel: "JHS 2",
+    role: "Parent",
+    content: "The discipline, moral values, and individual attention my daughter receives here are outstanding. She now loves going to school and her grades have improved significantly.",
     rating: 5,
-    image: "/assets/testimonial2.jpg",
-    year: "Class of 2015",
+    image: "/assets/parent2.jpg",
   },
   {
     id: 3,
-    name: "Kafui Mensah",
-    role: "Award-winning Journalist, GBC",
-    content: "My love for storytelling was nurtured by incredible teachers in the Arts department. sireSCH believed in me when I was just a dreamer. Now I tell Ghana's stories to the world.",
+    parentName: "Mrs. Fatima Ibrahim",
+    studentName: "Ahmed Ibrahim",
+    jhsLevel: "JHS 1",
+    role: "Parent",
+    content: "I am impressed with how they balance academics with sports and extracurricular activities. My son is happier and more focused than ever. Best decision we made for his education.",
     rating: 5,
-    image: "/assets/testimonial3.jpg",
-    year: "Class of 2012",
+    image: "/assets/parent3.jpg",
   },
   {
     id: 4,
-    name: "Ama Dzokoto",
-    role: "Visual Artist, International Exhibitions",
-    content: "The Visual Arts department opened my eyes to possibilities I never knew existed. Today, my work is shown in galleries across Africa and Europe. sireSCH sparked my creativity.",
+    parentName: "Mr. Samuel Adjei",
+    studentName: "Akua Adjei",
+    jhsLevel: "JHS 3",
+    role: "Parent",
+    content: "The weekly mock exams and personalized support helped my daughter perform very well in her BECE trials. The school truly cares about every child's success.",
     rating: 5,
-    image: "/assets/testimonial4.jpg",
-    year: "Class of 2018",
+    image: "/assets/parent4.jpg",
   },
   {
     id: 5,
-    name: "John Mensah",
-    role: "Civil Engineer, Ghana Highways Authority",
-    content: "The science program at sireSCH prepared me for the rigors of engineering school. The practical approach to learning and dedicated teachers gave me confidence to pursue my dreams.",
+    parentName: "Mrs. Evelyn Tetteh",
+    studentName: "Kojo Tetteh",
+    jhsLevel: "JHS 2",
+    role: "Parent",
+    content: "Small class sizes mean my child gets real attention. The teachers know each student personally. We have seen massive improvement in both academics and character.",
     rating: 5,
-    image: "/assets/testimonial5.jpg",
-    year: "Class of 2010",
-  },
-  {
-    id: 6,
-    name: "Mercy Adjei",
-    role: "Head of HR, Ghana Education Service",
-    content: "sireSCH taught me leadership and integrity. The school's values have guided my career in public service. I'm proud to be an alumni of this great institution.",
-    rating: 5,
-    image: "/assets/testimonial6.jpg",
-    year: "Class of 2005",
+    image: "/assets/parent5.jpg",
   },
 ];
 
-export default function Testimonials() {
+export default function ParentTestimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(2);
-  const [direction, setDirection] = useState(0); // -1 for left, 1 for right
+  const [direction, setDirection] = useState(0);
   const autoPlayTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Handle responsive items per view
+  // Responsive items per view
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setItemsPerView(1);
-      } else {
-        setItemsPerView(2);
-      }
+      setItemsPerView(window.innerWidth < 768 ? 1 : 2);
     };
-    
     handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const totalSlides = Math.ceil(testimonials.length / itemsPerView);
+  const totalSlides = Math.ceil(parentTestimonials.length / itemsPerView);
 
-  // Auto-play logic
+  // Auto-play
   useEffect(() => {
     autoPlayTimerRef.current = setInterval(() => {
-      setDirection(1); // Auto-play goes right
+      setDirection(1);
       setCurrentIndex((prev) => (prev + 1) % totalSlides);
-    }, 7000);
+    }, 6000);
 
     return () => {
-      if (autoPlayTimerRef.current) {
-        clearInterval(autoPlayTimerRef.current);
-      }
+      if (autoPlayTimerRef.current) clearInterval(autoPlayTimerRef.current);
     };
   }, [totalSlides]);
 
-  // Scroll right - animation from right to left
   const handleNext = useCallback(() => {
-    setDirection(1); // Right direction
+    setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % totalSlides);
   }, [totalSlides]);
 
-  // Scroll left - animation from left to right
   const handlePrev = useCallback(() => {
-    setDirection(-1); // Left direction
+    setDirection(-1);
     setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
   }, [totalSlides]);
 
   const handleDotClick = useCallback((index: number) => {
-    // Determine direction based on whether we're going forward or backward
-    if (index > currentIndex) {
-      setDirection(1);
-    } else if (index < currentIndex) {
-      setDirection(-1);
-    }
+    setDirection(index > currentIndex ? 1 : -1);
     setCurrentIndex(index);
   }, [currentIndex]);
 
-  const currentTestimonials = testimonials.slice(
+  const currentTestimonials = parentTestimonials.slice(
     currentIndex * itemsPerView,
     currentIndex * itemsPerView + itemsPerView
   );
 
-  // Animation variants based on direction
   const slideVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? 300 : -300,
-      opacity: 0
-    }),
-    center: {
-      x: 0,
-      opacity: 1
-    },
-    exit: (direction: number) => ({
-      x: direction > 0 ? -300 : 300,
-      opacity: 0
-    })
+    enter: (dir: number) => ({ x: dir > 0 ? 300 : -300, opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (dir: number) => ({ x: dir > 0 ? -300 : 300, opacity: 0 }),
   };
 
   return (
-    <section className="py-20 bg-background relative overflow-hidden">
+    <section className="py-20 bg-cream relative overflow-hidden" id="testimonials">
       <div className="container mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
@@ -153,40 +125,41 @@ export default function Testimonials() {
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/20 text-gold-dark text-sm font-medium mb-4"
           >
-            <Quote className="w-4 h-4" />
-            Success Stories
+            <Users className="w-4 h-4" />
+            Happy Parents
           </motion.div>
+
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-            What Our <span className="text-gold">Alumni Say</span>
+            What <span className="text-gold">Parents Say</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Real stories from graduates who started their journey at sireSCH and went on to achieve greatness.
+            Don't just take our word for it — hear from real parents whose children are thriving at Sire Junior High School.
           </p>
         </div>
 
-        {/* Carousel Container */}
+        {/* Carousel */}
         <div className="relative px-8 md:px-12">
           {/* Navigation Buttons */}
           {totalSlides > 1 && (
             <>
               <button
                 onClick={handlePrev}
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg border border-border hover:bg-gold hover:text-white transition-colors flex items-center justify-center"
-                aria-label="Previous testimonials - scroll left"
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white shadow-lg border border-border hover:bg-gold hover:text-white transition-all flex items-center justify-center"
+                aria-label="Previous"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
-              
+
               <button
                 onClick={handleNext}
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg border border-border hover:bg-gold hover:text-white transition-colors flex items-center justify-center"
-                aria-label="Next testimonials - scroll right"
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white shadow-lg border border-border hover:bg-gold hover:text-white transition-all flex items-center justify-center"
+                aria-label="Next"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
             </>
           )}
-          
+
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={currentIndex}
@@ -195,54 +168,35 @@ export default function Testimonials() {
               initial="enter"
               animate="center"
               exit="exit"
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className={`grid gap-8 ${itemsPerView === 1 ? 'grid-cols-1' : 'md:grid-cols-2'}`}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
+              className={`grid gap-8 ${itemsPerView === 1 ? "grid-cols-1" : "md:grid-cols-2"}`}
             >
               {currentTestimonials.map((testimonial) => (
                 <div
                   key={testimonial.id}
-                  className="bg-card rounded-xl p-8 shadow-soft hover:shadow-elevated transition-all group"
+                  className="bg-card rounded-3xl p-8 shadow-soft hover:shadow-xl transition-all group"
                 >
-                  {/* Quote Icon */}
                   <Quote className="w-10 h-10 text-gold/20 mb-6" />
-                  
-                  {/* Content */}
-                  <p className="text-foreground leading-relaxed mb-6 italic">
+
+                  <p className="text-foreground leading-relaxed mb-8 italic text-[15.5px]">
                     "{testimonial.content}"
                   </p>
-                  
-                  {/* Rating */}
-                  <div className="flex items-center gap-1 mb-4">
+
+                  <div className="flex items-center gap-1 mb-6">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-gold text-gold" />
+                      <Star key={i} className="w-5 h-5 fill-gold text-gold" />
                     ))}
                   </div>
-                  
-                  {/* Author */}
+
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center overflow-hidden">
-                      {testimonial.image ? (
-                        <Image
-                          src={testimonial.image}
-                          alt={testimonial.name}
-                          width={48}
-                          height={48}
-                          className="w-full h-full object-cover"
-                        />
-                      ) : (
-                        <div className="w-full h-full bg-gold/30 flex items-center justify-center">
-                          <span className="text-gold font-bold text-lg">
-                            {testimonial.name.charAt(0)}
-                          </span>
-                        </div>
-                      )}
-                    </div>
+                   
+
                     <div>
-                      <h4 className="font-display font-semibold text-foreground">
-                        {testimonial.name}
-                      </h4>
-                      <p className="text-sm text-gold">{testimonial.role}</p>
-                      <p className="text-xs text-muted-foreground">{testimonial.year}</p>
+                      <h4 className="font-semibold text-foreground">{testimonial.parentName}</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Parent of {testimonial.studentName} • {testimonial.jhsLevel}
+                      </p>
+                      <p className="text-xs text-gold mt-0.5">{testimonial.role}</p>
                     </div>
                   </div>
                 </div>
@@ -251,17 +205,17 @@ export default function Testimonials() {
           </AnimatePresence>
         </div>
 
-        {/* Dots Indicator */}
+        {/* Dots */}
         {totalSlides > 1 && (
-          <div className="flex justify-center gap-2 mt-8">
+          <div className="flex justify-center gap-2 mt-10">
             {Array.from({ length: totalSlides }).map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => handleDotClick(idx)}
-                className={`w-2 h-2 rounded-full transition-all ${
+                className={`h-2.5 rounded-full transition-all ${
                   currentIndex === idx
                     ? "w-8 bg-gold"
-                    : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                    : "w-2.5 bg-muted-foreground/40 hover:bg-muted-foreground/60"
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />

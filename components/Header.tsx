@@ -23,7 +23,7 @@ const navItems = [
     href: "/academics",
     children: [
        { label: "Departments", href:"/academics",   icon: Leaf },
-      { label: "Programs", href:"/departments", hash: "#programs", icon: BookOpen },
+      { label: "Programs", href:"/programs", hash: "#programs", icon: BookOpen },
       { label: "Success Stories", href: "/academics", hash: "#stories", icon: Star },
       { label: "SBC Curriculum", href: "/academics", hash: "#curriculum", icon: GraduationCap },
     ],

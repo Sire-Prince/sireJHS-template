@@ -17,7 +17,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
-const programs = [
+const studyPrograms = [
   {
     icon: Beaker,
     title: "General Science",
@@ -60,39 +60,26 @@ const programs = [
   },
 ];
 
-const successStories = [
+const parentTestimonials = [
   {
-    name: "Dr. Edem Adzogenu",
-    year: "Class of 2008",
-    achievement: "Medical Doctor at Korle Bu Teaching Hospital",
-    quote:
-      "sireSCH taught me discipline and the value of hard work. The science department gave me a strong foundation that carried me through medical school.",
-    program: "General Science",
+    parentName: "Mrs. Akosua Mensah",
+    studentName: "Yaw",
+    jhsLevel: "3",
+    quote: "Since joining Sire JHS, my son’s confidence and grades have improved dramatically. The teachers are very dedicated and the BECE preparation is excellent."
   },
   {
-    name: "Sena Amedorme",
-    year: "Class of 2015",
-    achievement: "CEO, AgriTech Ghana Ltd",
-    quote:
-      "The business skills I learned at sireSCH, combined with our agricultural training, inspired me to start a company that helps farmers across Ghana.",
-    program: "Business Studies",
+    parentName: "Mr. Kwame Osei",
+    studentName: "Abena",
+    jhsLevel: "2",
+    quote: "The discipline and moral values taught here are outstanding. My daughter is not only doing well academically but has also developed a strong sense of responsibility."
   },
   {
-    name: "Kafui Mensah",
-    year: "Class of 2012",
-    achievement: "Award-winning Journalist, GBC",
-    quote:
-      "My love for literature and storytelling was nurtured by incredible teachers in the Arts department. sireSCH believed in me when I was just a dreamer.",
-    program: "General Arts",
+    parentName: "Mrs. Fatima Ibrahim",
+    studentName: "Ahmed",
+    jhsLevel: "1",
+    quote: "I love how they balance academics with sports and cultural activities. My son looks forward to going to school every day. Best decision we made!"
   },
-  {
-    name: "Ama Dzokoto",
-    year: "Class of 2018",
-    achievement: "Visual Artist, International Exhibitions",
-    quote:
-      "The Visual Arts department at sireSCH opened my eyes to possibilities I never knew existed. Now my work is shown in galleries across Africa and Europe.",
-    program: "Visual Arts",
-  },
+ 
 ];
 
 const milestones = [
@@ -133,15 +120,15 @@ export default function AcademicsContent() {
             </h1>
             <p className="text-xl text-primary-foreground/80 leading-relaxed">
               Following the Standards-Based Curriculum with WAEC-aligned
-              programs, we prepare students for success in national examinations
+              , we prepare students for success in national examinations
               and beyond.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Programs Section */}
-      <section id="programs" className="py-20 px-2 sm:px-4 bg-background">
+      {/* departments Section */}
+      <section id="" className="py-20 px-2 sm:px-4 bg-background">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <motion.div
@@ -151,7 +138,7 @@ export default function AcademicsContent() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4"
             >
               <GraduationCap className="w-4 h-4" />
-              Study Programs
+              Study 
             </motion.div>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
               Choose Your <span className="text-gold">Path</span>
@@ -334,67 +321,72 @@ export default function AcademicsContent() {
 
       {/* Success Stories */}
       <section id="stories" className="py-20 px-2 sm:px-12 bg-cream">
-        <div className="container mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/20 text-gold-dark text-sm font-medium mb-4"
-            >
-              <Users className="w-4 h-4" />
-              Alumni Stories
-            </motion.div>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
-              Where <span className="text-gold">Stars</span> Are Made
-            </h2>
-            <p className="text-muted-foreground text-lg mt-4 max-w-2xl mx-auto">
-              Our alumni are making their mark across Ghana and beyond. Here are
-              some of the incredible journeys that started in the halls of
-              sireSCH.
-            </p>
+  <div className="container mx-auto px-6 lg:px-8">
+    <div className="text-center mb-16">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/20 text-gold-dark text-sm font-medium mb-4"
+      >
+        <Users className="w-4 h-4" />
+        Parent Voices
+      </motion.div>
+
+      <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
+        What <span className="text-gold">Parents Say</span>
+      </h2>
+      <p className="text-muted-foreground text-lg mt-4 max-w-2xl mx-auto">
+        Real stories from proud parents whose children are thriving at Sire Junior High School
+      </p>
+    </div>
+
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {parentTestimonials.map((testimonial, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: index * 0.1 }}
+          className="bg-card rounded-3xl p-8 border border-border shadow-soft relative overflow-hidden group"
+        >
+          {/* Decorative Quote Icon */}
+          <Quote className="w-12 h-12 text-gold/10 absolute top-6 right-6 group-hover:text-gold/20 transition-colors" />
+
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-100 to-gold/20 flex items-center justify-center flex-shrink-0">
+              <Users className="w-7 h-7 text-gold" />
+            </div>
+            <div>
+              <h4 className="font-semibold text-foreground">{testimonial.parentName}</h4>
+              <p className="text-sm text-muted-foreground">
+                Parent of {testimonial.studentName} • JHS {testimonial.jhsLevel}
+              </p>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {successStories.map((story, index) => (
-              <motion.div
-                key={story.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-card rounded-2xl p-8 border border-border shadow-soft relative"
-              >
-                <Quote className="w-10 h-10 text-gold/20 absolute top-6 right-6" />
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-16 h-16 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
-                    <Users className="w-8 h-8 text-gold" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-display font-bold text-foreground">
-                      {story.name}
-                    </h3>
-                    <p className="text-gold text-sm font-medium">
-                      {story.year}
-                    </p>
-                    <p className="text-muted-foreground text-sm">
-                      {story.achievement}
-                    </p>
-                  </div>
-                </div>
-                <blockquote className="text-foreground italic leading-relaxed mb-4">
-                  "{story.quote}"
-                </blockquote>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-muted text-sm font-medium text-muted-foreground">
-                  <GraduationCap className="w-4 h-4" />
-                  {story.program}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+          <blockquote className="text-foreground italic leading-relaxed text-[15.5px] mb-6">
+            “{testimonial.quote}”
+          </blockquote>
 
+          <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-gold font-medium">
+            <Star className="w-4 h-4 fill-gold" />
+            <Star className="w-4 h-4 fill-gold" />
+            <Star className="w-4 h-4 fill-gold" />
+            <Star className="w-4 h-4 fill-gold" />
+            <Star className="w-4 h-4 fill-gold" />
+          </div>
+        </motion.div>
+      ))}
+    </div>
+
+    {/* Optional: Add a small note */}
+    <div className="text-center mt-12 text-sm text-muted-foreground">
+      Over 150+ happy parents have trusted us with their children’s education
+    </div>
+  </div>
+</section>
       {/* Milestones Timeline */}
       <section className="py-20 px-2 sm:px-12 bg-background">
         <div className="container mx-auto px-6 lg:px-8">

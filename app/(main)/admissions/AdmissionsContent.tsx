@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { FileText, CheckCircle, Upload, Calendar, CreditCard, MapPin, ArrowRight, Phone, Mail, Play, BookOpen, Users, Award, Download } from "lucide-react";
+import { FileText, CheckCircle, Upload, Calendar, CreditCard, MapPin, ArrowRight, Phone, Mail, Play, BookOpen, Users, Award, Download, Sparkles, Gift, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/lib/supabase";
 
 const requirements = [
   "Completed Primary 6 with successful BECE registration",
@@ -56,15 +57,92 @@ const fees = [
 
 export default function AdmissionsContent() {
   const [isApplyOpen, setIsApplyOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleApplySubmit = (e: React.FormEvent) => {
+  const handleApplySubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    toast({
-      title: "Application Submitted!",
-      description: "We've received your JHS admission application. Our admissions team will contact you shortly.",
-    });
-    setIsApplyOpen(false);
+    setIsSubmitting(true);
+    
+    const formData = new FormData(e.currentTarget);
+    const firstName = formData.get("firstName") as string;
+    const lastName = formData.get("lastName") as string;
+    const email = formData.get("email") as string;
+    const phone = formData.get("phone") as string;
+    const grade = formData.get("grade") as string;
+    
+    // Prepare data to match your admissions table schema
+    const applicationData = {
+      name: `${firstName} ${lastName}`,
+      contact: phone,
+      email: email,
+      date: new Date().toISOString().split('T')[0],
+      grade: grade,
+      status: "pending",
+    };
+
+    try {
+      const { data, error } = await supabase
+        .from("admissions")
+        .insert([applicationData])
+        .select();
+
+      if (error) throw error;
+
+      // Success toast with celebration
+      toast({
+        title: "🎉 Application Submitted Successfully!",
+        description: (
+          <div className="mt-2 space-y-2">
+            <p className="font-medium">Welcome to sireSCH, {firstName}! 🙏</p>
+            <div className="p-2 bg-gold/10 rounded-lg space-y-1">
+              <p className="text-xs flex items-center gap-1">✨ <strong>Application ID:</strong> #{(data?.[0]?.id || 'N/A')}</p>
+              <p className="text-xs">📧 Confirmation sent to: {email}</p>
+              <p className="text-xs">📞 We'll contact you at: {phone}</p>
+              <p className="text-xs">⏱️ Response time: 24-48 hours</p>
+            </div>
+            <p className="text-sm mt-1">🎯 Next steps: Prepare your documents for assessment</p>
+          </div>
+        ),
+        duration: 8000,
+      });
+
+      // Second toast with next steps
+      setTimeout(() => {
+        toast({
+          title: "📚 What's Next?",
+          description: (
+            <div className="mt-1">
+              <p>1. Check your email for confirmation</p>
+              <p>2. Prepare required documents</p>
+              <p>3. Wait for assessment schedule</p>
+              <p className="text-xs mt-1">Need help? Contact admissions@sireSCH.edu.gh</p>
+            </div>
+          ),
+          duration: 6000,
+        });
+      }, 1000);
+      
+      setIsApplyOpen(false);
+      e.currentTarget.reset();
+      
+    } catch (error: any) {
+      console.error("Error submitting application:", error);
+      toast({
+        title: "❌ Submission Failed",
+        description: (
+          <div className="mt-2">
+            <p>We couldn't submit your application.</p>
+            <p className="text-xs mt-1">Error: {error.message || "Please try again"}</p>
+            <p className="text-xs mt-2">📞 Contact us directly: +233 XX XXX XXXX</p>
+          </div>
+        ),
+        variant: "destructive",
+        duration: 6000,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -101,48 +179,67 @@ export default function AdmissionsContent() {
             <div className="flex flex-wrap gap-4">
               <Dialog open={isApplyOpen} onOpenChange={setIsApplyOpen}>
                 <DialogTrigger asChild>
-                  <Button variant="hero-gold" size="xl">
+                  <Button variant="hero-gold" size="xl" className="group">
+                    <Sparkles className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
                     Apply Now for JHS
-                    <ArrowRight className="w-5 h-5" />
+                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-lg">
                   <DialogHeader>
-                    <DialogTitle className="font-display text-2xl">JHS Admission Enquiry</DialogTitle>
+                    <DialogTitle className="font-display text-2xl flex items-center gap-2">
+                      <Gift className="w-6 h-6 text-gold" />
+                      Begin Your Journey
+                    </DialogTitle>
+                    <p className="text-sm text-muted-foreground mt-2">
+                      Fill in the details below to start your admission process
+                    </p>
                   </DialogHeader>
                   <form onSubmit={handleApplySubmit} className="space-y-4 mt-4">
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <Label htmlFor="firstName">Student's First Name</Label>
-                        <Input id="firstName" placeholder="John" required />
+                        <Label htmlFor="firstName">Student's First Name *</Label>
+                        <Input id="firstName" name="firstName" placeholder="John" required />
                       </div>
                       <div>
-                        <Label htmlFor="lastName">Student's Last Name</Label>
-                        <Input id="lastName" placeholder="Doe" required />
+                        <Label htmlFor="lastName">Student's Last Name *</Label>
+                        <Input id="lastName" name="lastName" placeholder="Doe" required />
                       </div>
                     </div>
                     <div>
-                      <Label htmlFor="email">Parent/Guardian Email</Label>
-                      <Input id="email" type="email" placeholder="parent@email.com" required />
+                      <Label htmlFor="email">Parent/Guardian Email *</Label>
+                      <Input id="email" name="email" type="email" placeholder="parent@email.com" required />
                     </div>
                     <div>
-                      <Label htmlFor="phone">Parent/Guardian Phone Number</Label>
-                      <Input id="phone" placeholder="+233 XX XXX XXXX" required />
+                      <Label htmlFor="phone">Parent/Guardian Phone Number *</Label>
+                      <Input id="phone" name="phone" placeholder="+233 XX XXX XXXX" required />
                     </div>
                     <div>
-                      <Label htmlFor="currentSchool">Current School</Label>
-                      <Input id="currentSchool" placeholder="Name of current school" required />
+                      <Label htmlFor="grade">Current Grade/Class *</Label>
+                      <Input id="grade" name="grade" placeholder="JHS 1, JHS 2, or Primary 6" required />
                     </div>
-                    <div>
-                      <Label htmlFor="grade">Current Grade/Class</Label>
-                      <Input id="grade" placeholder="JHS 1, JHS 2, or Primary 6" required />
+                    <div className="bg-gold/10 p-3 rounded-lg text-xs text-muted-foreground">
+                      <p>✨ By submitting, you agree to our admission terms and conditions</p>
+                      <p>📋 Our team will contact you within 24-48 hours</p>
                     </div>
-                    <div>
-                      <Label htmlFor="message">Additional Message</Label>
-                      <Textarea id="message" placeholder="Tell us about yourself or any questions..." rows={3} />
-                    </div>
-                    <Button type="submit" variant="gold" className="w-full" size="lg">
-                      Submit Enquiry
+                    <Button 
+                      type="submit" 
+                      variant="gold" 
+                      className="w-full" 
+                      size="lg" 
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <span className="animate-spin mr-2">⏳</span>
+                          Submitting Application...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-4 h-4 mr-2" />
+                          Submit Application
+                        </>
+                      )}
                     </Button>
                   </form>
                 </DialogContent>
@@ -305,8 +402,8 @@ export default function AdmissionsContent() {
             <div className="flex justify-center">
               <a 
                 href="/JHS_Fees.pdf"
-                 target="_blank"
-  rel="noopener noreferrer"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-gold text-navy-dark hover:bg-gold/90 transition-colors rounded-lg font-semibold shadow-soft group"
               >
                 <Download className="w-5 h-5 group-hover:scale-110 transition-transform" />
@@ -337,16 +434,16 @@ export default function AdmissionsContent() {
             <div className="mt-12 grid sm:grid-cols-2 gap-4 max-w-xl mx-auto">
               <a
                 href="tel:+233000000000"
-                className="flex items-center justify-center gap-2 p-4 glass rounded-xl hover:bg-primary-foreground/10 transition-colors"
+                className="flex items-center justify-center gap-2 p-4 glass rounded-xl hover:bg-primary-foreground/10 transition-colors group"
               >
-                <Phone className="w-5 h-5 text-gold" />
+                <Phone className="w-5 h-5 text-gold group-hover:scale-110 transition-transform" />
                 <span>Call Admissions Office</span>
               </a>
               <a
                 href="mailto:admissions@sireSCH.edu.gh"
-                className="flex items-center justify-center gap-2 p-4 glass rounded-xl hover:bg-primary-foreground/10 transition-colors"
+                className="flex items-center justify-center gap-2 p-4 glass rounded-xl hover:bg-primary-foreground/10 transition-colors group"
               >
-                <Mail className="w-5 h-5 text-gold" />
+                <Mail className="w-5 h-5 text-gold group-hover:scale-110 transition-transform" />
                 <span>Email Admissions</span>
               </a>
             </div>
