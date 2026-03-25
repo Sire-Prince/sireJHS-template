@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Serif+4:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ANSECO School Colors - Navy Blue & Gold Theme */
+    --background: 210 25% 98%;
+    --foreground: 220 50% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 50% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 50% 12%;
+
+    /* Navy Blue - School Primary */
+    --primary: 220 60% 20%;
+    --primary-foreground: 45 90% 95%;
+
+    /* Gold/Amber - School Accent */
+    --secondary: 45 85% 55%;
+    --secondary-foreground: 220 50% 12%;
+
+    --muted: 210 20% 94%;
+    --muted-foreground: 220 15% 45%;
+
+    /* Gold accent */
+    --accent: 40 90% 50%;
+    --accent-foreground: 220 50% 12%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 88%;
+    --input: 220 20% 88%;
+    --ring: 45 85% 55%;
+
+    --radius: 0.625rem;
+
+    /* Custom ANSECO tokens */
+    --navy: 220 60% 20%;
+    --navy-light: 220 45% 35%;
+    --navy-dark: 220 65% 12%;
+    --gold: 45 85% 55%;
+    --gold-light: 45 90% 70%;
+    --gold-dark: 40 80% 45%;
+    --cream: 45 50% 96%;
+    --success: 160 60% 45%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(220 60% 15% / 0.95), hsl(220 60% 25% / 0.85));
+    --gradient-gold: linear-gradient(135deg, hsl(45 85% 55%), hsl(40 80% 45%));
+    --gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(220 60% 12% / 0.7) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(220 60% 20% / 0.15);
+    --shadow-elevated: 0 12px 40px -8px hsl(220 60% 20% / 0.25);
+    --shadow-gold: 0 8px 30px -6px hsl(45 85% 55% / 0.4);
+
+    /* Fonts - Professional Sans-Serif */
+    --font-display:'Lucida Sans', 'Source Serif 4', Georgia, serif;
+    --font-body:  'Lucida Grande','Source Sans 3', system-ui, sans-serif;
+    /* Sidebar tokens */
+    --sidebar-background: 220 60% 15%;
+    --sidebar-foreground: 45 90% 95%;
+    --sidebar-primary: 45 85% 55%;
+    --sidebar-primary-foreground: 220 50% 12%;
+    --sidebar-accent: 220 50% 25%;
+    --sidebar-accent-foreground: 45 90% 95%;
+    --sidebar-border: 220 40% 25%;
+    --sidebar-ring: 45 85% 55%;
+  }
+
+  .dark {
+    --background: 220 50% 8%;
+    --foreground: 45 20% 95%;
+
+    --card: 220 45% 12%;
+    --card-foreground: 45 20% 95%;
+
+    --popover: 220 45% 12%;
+    --popover-foreground: 45 20% 95%;
+
+    --primary: 45 85% 55%;
+    --primary-foreground: 220 50% 12%;
+
+    --secondary: 220 45% 20%;
+    --secondary-foreground: 45 90% 95%;
+
+    --muted: 220 40% 18%;
+    --muted-foreground: 220 15% 60%;
+
+    --accent: 45 85% 55%;
+    --accent-foreground: 220 50% 12%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 35% 22%;
+    --input: 220 35% 22%;
+    --ring: 45 85% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(45 85% 55%), hsl(40 80% 45%));
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gradient-gold {
+    background: var(--gradient-gold);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+
+  /* Underline animation for links */
+  .link-underline {
+    @apply relative;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5 scale-x-0 origin-right transition-transform duration-300;
+    background: hsl(var(--gold));
+  }
+
+  .link-underline:hover::after {
+    @apply scale-x-100 origin-left;
+  }
+
+  /* Glass effect */
+  .glass {
+    @apply backdrop-blur-md;
+    background: hsl(0 0% 100% / 0.1);
+    border: 1px solid hsl(0 0% 100% / 0.15);
+  }
+
+  .glass-dark {
+    @apply backdrop-blur-md;
+    background: hsl(220 60% 12% / 0.8);
+    border: 1px solid hsl(220 60% 20% / 0.3);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+}
