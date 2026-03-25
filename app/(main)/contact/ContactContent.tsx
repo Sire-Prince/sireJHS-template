@@ -55,10 +55,10 @@ const handleWhatsAppSubmit = (e: React.FormEvent) => {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "https://facebook.com/sireSCHSHS", label: "Facebook" },
-    { icon: Twitter, href: "https://twitter.com/sireSCHSHS", label: "Twitter" },
-    { icon: Instagram, href: "https://instagram.com/sireSCHSHS", label: "Instagram" },
-    { icon: Youtube, href: "https://youtube.com/@sireSCHSHS", label: "YouTube" },
+    { icon: Facebook, href: "https://facebook.com/sireSCHJSH", label: "Facebook" },
+    { icon: Twitter, href: "https://twitter.com/sireSCHJSH", label: "Twitter" },
+    { icon: Instagram, href: "https://instagram.com/sireSCHJSH", label: "Instagram" },
+    { icon: Youtube, href: "https://youtube.com/@sireSCHJSH", label: "YouTube" },
   ];
 
   return (

@@ -44,7 +44,7 @@ const programs = [
     subjects: ["Core & Electives", "WASSCE Prep", "Career Guidance"],
     careers: ["University Student", "Professional Career"],
     color: "from-purple-600 to-pink-500",
-    img: "/assets/shs.webp",
+    img: "/assets/JSH.webp",
     stats: "98% WASSCE Pass Rate",
     id:"secondary"
   },
@@ -88,7 +88,7 @@ const achievements = [
   {
     value: "100%",
     label: "BECE Pass Rate",
-    description: "All candidates placed into SHS",
+    description: "All candidates placed into JSH",
   },
   {
     value: "95%",
