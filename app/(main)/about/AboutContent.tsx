@@ -24,23 +24,23 @@ import { FileText } from "lucide-react";
 const timeline = [
   {
     year: "1963",
-    event: "School established as sireSCH Secondary School",
+    event: "School established as sireJSH Secondary School",
     description:
-      "Founded by the visionary leaders of sireSCH Traditional Area, the school began with just 50 students in temporary structures. The founding headmaster, Mr. S.K. Agbeko, led the pioneering staff who shared a dream of bringing quality education to the people of sireSCHland.",
+      "Founded by the visionary leaders of sireJSH Traditional Area, the school began with just 50 students in temporary structures. The founding headmaster, Mr. S.K. Agbeko, led the pioneering staff who shared a dream of bringing quality education to the people of sireJSHland.",
     category: "B",
   },
   {
     year: "1975",
     event: "First graduating class achieves 100% pass rate",
     description:
-      "After years of dedication, sireSCH's first Form 5 graduates achieved a remarkable 100% pass rate in the GCE O-Level examinations, establishing the school's reputation for academic excellence throughout the Volta Region.",
+      "After years of dedication, sireJSH's first Form 5 graduates achieved a remarkable 100% pass rate in the GCE O-Level examinations, establishing the school's reputation for academic excellence throughout the Volta Region.",
     category: "B",
   },
   {
     year: "1987",
     event: "Upgraded to Senior Secondary School status",
     description:
-      "Following the educational reforms, sireSCH transitioned to the SSS system. New laboratories were constructed, and the school expanded its capacity to serve more students from across Ghana.",
+      "Following the educational reforms, sireJSH transitioned to the SSS system. New laboratories were constructed, and the school expanded its capacity to serve more students from across Ghana.",
     category: "B",
   },
   {
@@ -54,21 +54,21 @@ const timeline = [
     year: "2018",
     event: "First NSMQ regional finals appearance",
     description:
-      "sireSCH's science quiz team made history by reaching the Volta Regional finals of the National Science and Maths Quiz, inspiring a new generation of science students and earning the school national recognition.",
+      "sireJSH's science quiz team made history by reaching the Volta Regional finals of the National Science and Maths Quiz, inspiring a new generation of science students and earning the school national recognition.",
     category: "B",
   },
   {
     year: "2022",
     event: "Upgraded to Category A institution",
     description:
-      "After decades of consistent improvement, the Ghana Education Service officially upgraded sireSCH to Category A status, recognizing its excellent facilities, qualified staff, and outstanding student outcomes.",
+      "After decades of consistent improvement, the Ghana Education Service officially upgraded sireJSH to Category A status, recognizing its excellent facilities, qualified staff, and outstanding student outcomes.",
     category: "A",
   },
   {
     year: "2025",
     event: "Record WAEC results - 45+ A1 grades",
     description:
-      "The school achieved its best WASSCE results in history with over 45 students obtaining A1 grades across subjects, and a 98% pass rate—cementing sireSCH's position as a leading school in Ghana.",
+      "The school achieved its best WASSCE results in history with over 45 students obtaining A1 grades across subjects, and a 98% pass rate—cementing sireJSH's position as a leading school in Ghana.",
     category: "A",
   },
 ];
@@ -150,7 +150,7 @@ export default function AboutContent() {
         <div className="absolute inset-0">
           <Image
             src="/assets/hero-campus.jpg"
-            alt="sireSCH Campus"
+            alt="sireJSH Campus"
             fill
             className="object-cover opacity-80"
             priority
@@ -171,7 +171,7 @@ export default function AboutContent() {
               Our Story of <span className="text-gold">Excellence</span>
             </h1>
             <p className="text-xl text-primary-foreground/80 leading-relaxed">
-              From humble beginnings to Category A excellence, sireSCH continues
+              From humble beginnings to Category A excellence, sireJSH continues
               to shape the future of education in Ghana's Volta Region.
             </p>
           </motion.div>
@@ -198,7 +198,7 @@ export default function AboutContent() {
                 To be the leading center of academic excellence in Ghana,
                 producing well-rounded individuals who contribute positively to
                 national development while upholding the rich cultural heritage
-                of the sireSCH people.
+                of the sireJSH people.
               </p>
             </motion.div>
             <motion.div
@@ -240,7 +240,7 @@ export default function AboutContent() {
                 Learn About Us
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6">
-                About <span className="text-gold">sireSCH</span>
+                About <span className="text-gold">sireJSH</span>
               </h2>
               <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
                 Begin your journey to academic excellence. We welcome motivated
@@ -248,7 +248,7 @@ export default function AboutContent() {
                 integrity, and achievement.
               </p>
               <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                sireSCH is a premier educational institution dedicated to
+                sireJSH is a premier educational institution dedicated to
                 providing exceptional learning experiences. We foster a
                 nurturing environment where students can thrive academically and
                 personally.
@@ -277,7 +277,7 @@ export default function AboutContent() {
               <div className="relative overflow-hidden shadow-elevated">
                 <Image
                   src="/assets/hompage.jpg"
-                  alt="sireSCH Students Celebrating"
+                  alt="sireJSH Students Celebrating"
                   width={700}
                   height={600}
                   className="w-full h-auto object-cover"

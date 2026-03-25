@@ -46,7 +46,7 @@ const HeroSection = () => {
         >
           <Image
             src={src}
-            alt={`SireSCH Campus View ${index + 1}`}
+            alt={`sireJSH Campus View ${index + 1}`}
             fill
             className="object-cover object-center"
             priority={index === 0}
@@ -86,7 +86,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="text-white/90 text-lg md:text-xl lg:text-left text-center leading-relaxed mb-12 max-w-2xl drop-shadow-lg"
           >
-            SireSCH – An institution nurturing future leaders 
+            sireJSH – An institution nurturing future leaders 
             with academic excellence, discipline, and strong moral values.
           </motion.p>
 

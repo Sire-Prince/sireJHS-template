@@ -230,7 +230,7 @@ export default function AcademicsOverview() {
                 </h3>
                 <p className="text-primary-foreground/80 leading-relaxed mb-6">
                   Ghana's Standards-Based Curriculum (SBC) emphasizes critical thinking, 
-                  problem-solving, and competency-based assessment. At sireSCH, we fully 
+                  problem-solving, and competency-based assessment. At sireJSH, we fully 
                   implement this curriculum with modern teaching methodologies.
                 </p>
                 <Button variant="hero-gold" asChild>

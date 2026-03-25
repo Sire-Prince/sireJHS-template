@@ -76,7 +76,7 @@ const Facilities = () => {
             <div className="absolute inset-0">
               <Image 
                 src="/assets/hero-campus.jpg" 
-                alt="sireSCH Campus" 
+                alt="sireJSH Campus" 
                 fill
                 className="object-cover opacity-20"
               />
@@ -236,7 +236,7 @@ const Facilities = () => {
                 </h2>
                 <p className="text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
                   Schedule a visit to see our facilities firsthand and discover why 
-                  sireSCH is the preferred choice for education in Ghana.
+                  sireJSH is the preferred choice for education in Ghana.
                 </p>
               </motion.div>
             </div>

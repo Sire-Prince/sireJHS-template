@@ -19,10 +19,10 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "https://facebook.com/sireSCH", label: "Facebook" },
-    { icon: Twitter, href: "https://twitter.com/sireSCH", label: "Twitter" },
-    { icon: Instagram, href: "https://instagram.com/sireSCH", label: "Instagram" },
-    { icon: Youtube, href: "https://youtube.com/@sireSCH", label: "YouTube" },
+    { icon: Facebook, href: "https://facebook.com/sireJSH", label: "Facebook" },
+    { icon: Twitter, href: "https://twitter.com/sireJSH", label: "Twitter" },
+    { icon: Instagram, href: "https://instagram.com/sireJSH", label: "Instagram" },
+    { icon: Youtube, href: "https://youtube.com/@sireJSH", label: "YouTube" },
   ];
 
   return (
@@ -37,12 +37,12 @@ const Footer = () => {
                 <GraduationCap className="w-7 h-7 text-navy-dark" />
               </div>
               <div>
-                <h2 className="text-xl font-display font-bold">sireSCH</h2>
-                <p className="text-sm text-gold"> sireSCH home of excelence</p>
+                <h2 className="text-xl font-display font-bold">sireJSH</h2>
+                <p className="text-sm text-gold"> sireJSH home of excelence</p>
               </div>
             </Link>
             <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">
-              sireSCH Senior High School, proudly serving the Volta Region with excellence in education since our establishment. Nurturing future leaders with knowledge, discipline, and integrity.
+              sireJSH Senior High School, proudly serving the Volta Region with excellence in education since our establishment. Nurturing future leaders with knowledge, discipline, and integrity.
             </p>
             <div className="flex gap-3">
               {socialLinks.map((social) => (
@@ -101,7 +101,7 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
                 <span className="text-primary-foreground/70 text-sm">
-                  sireSCH Senior High School, sireSCHga, Volta Region, Ghana
+                  sireJSH Senior High School, sireJSHga, Volta Region, Ghana
                 </span>
               </li>
               <li className="flex items-center gap-3">
@@ -116,7 +116,7 @@ const Footer = () => {
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-gold flex-shrink-0" />
                 <a
-                  href="mailto:info@sireSCH.edu.gh"
+                  href="mailto:info@sireJSH.edu.gh"
                   className="text-primary-foreground/70 hover:text-gold transition-colors text-sm"
                 >
                palpha824@gmail.com
@@ -139,7 +139,7 @@ const Footer = () => {
       <div className="border-t border-primary-foreground/10">
         <div className="container mx-auto px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-primary-foreground/60">
-            <p>© {new Date().getFullYear()} sireSCH Senior High School. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} sireJSH Senior High School. All rights reserved.</p>
             <div className="flex items-center gap-6">
               <Link href="/privacy" className="hover:text-gold transition-colors">
                 Privacy Policy

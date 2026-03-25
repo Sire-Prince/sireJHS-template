@@ -7,7 +7,7 @@ import Image from "next/image";
 import { Input } from "@/components/ui/input";
 
 const featuredNews = {
-  title: "sireSCH Reaches NSMQ Regional Finals 2025",
+  title: "sireJSH Reaches NSMQ Regional Finals 2025",
   excerpt: "Our brilliant science students showcased exceptional knowledge and teamwork to secure a spot in the regional finals of the National Science & Maths Quiz.",
   date: "January 2, 2026",
   category: "Achievement",
@@ -41,7 +41,7 @@ image: "/assets/hompage4.webp",
   },
   {
     title: "Outstanding WAEC Performance 2024",
-    excerpt: "sireSCH records 98% pass rate with 45+ A1 grades in the 2024 WASSCE. Congratulations to all students and teachers.",
+    excerpt: "sireJSH records 98% pass rate with 45+ A1 grades in the 2024 WASSCE. Congratulations to all students and teachers.",
     date: "December 10, 2025",
     category: "Achievement",
     icon: Trophy,
@@ -75,7 +75,7 @@ export default function NewsContent() {
               News & <span className="text-gold">Announcements</span>
             </h1>
             <p className="text-xl text-primary-foreground/80 leading-relaxed">
-              Stay connected with everything happening at sireSCH.
+              Stay connected with everything happening at sireJSH.
             </p>
           </motion.div>
         </div>

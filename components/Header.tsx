@@ -112,7 +112,7 @@ const Header = () => {
             </div>
             <div className="block">
               <h1 className="text-lg font-display text-3xl font-bold text-primary-foreground leading-tight">
-                SireSCH
+                sireJSH
               </h1>
             </div>
           </Link>

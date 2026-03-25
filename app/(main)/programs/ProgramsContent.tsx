@@ -158,7 +158,7 @@ export default function ProgramsContent() {
               <div className="absolute inset-0">
                 <Image
                   src="/assets/science-lab.jpg"
-                  alt="sireSCH Science Lab"
+                  alt="sireJSH Science Lab"
                   fill
                   className="object-cover opacity-20"
                   priority

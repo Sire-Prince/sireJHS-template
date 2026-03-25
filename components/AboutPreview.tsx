@@ -11,7 +11,7 @@ const AboutPreview = () => {
     {
       icon: FileText,
       title: "CSSPS Placement",
-      description: "Select sireSCH as your preferred school during CSSPS registration.",
+      description: "Select sireJSH as your preferred school during CSSPS registration.",
     },
     {
       icon: Calendar,
@@ -44,7 +44,7 @@ const AboutPreview = () => {
     {
       icon: MapPin,
       label: "Volta Region",
-      description: "Conveniently located in sireSCH",
+      description: "Conveniently located in sireJSH",
     },
   ];
 
@@ -63,14 +63,14 @@ const AboutPreview = () => {
               Learn About Us
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6">
-             About <span className="text-gold">sireSCH</span> 
+             About <span className="text-gold">sireJSH</span> 
             </h2>
             <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
               Begin your journey to academic excellence. We welcome motivated students 
               ready to embrace our tradition of discipline, integrity, and achievement.
             </p>
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              sireSCH is a premier educational institution dedicated to providing exceptional 
+              sireJSH is a premier educational institution dedicated to providing exceptional 
               learning experiences. We foster a nurturing environment where students can thrive 
               academically and personally.
             </p>
@@ -100,7 +100,7 @@ const AboutPreview = () => {
             <div className="relative overflow-hidden shadow-elevated">
               <Image
                 src="/assets/hompage.jpg"
-                alt="sireSCH Students Celebrating"
+                alt="sireJSH Students Celebrating"
                 width={700}
                 height={600}
                 className="w-full h-auto object-cover"

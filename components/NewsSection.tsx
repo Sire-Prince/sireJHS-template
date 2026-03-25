@@ -84,7 +84,7 @@ const NewsSection = () => {
               <div className="relative overflow-hidden  mb-6">
            <Image
   src="/assets/news.jpg"
-  alt="sireSCH Students Celebrating"
+  alt="sireJSH Students Celebrating"
   width={800}
   height={600}
   className="w-full h-auto object-cover"

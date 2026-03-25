@@ -98,7 +98,7 @@ export default function AcademicsContent() {
         <div className="absolute inset-0">
           <Image
             src="/assets/science-lab.jpg"
-            alt="sireSCH Science Lab"
+            alt="sireJSH Science Lab"
             fill
             className="object-cover opacity-20"
             priority
@@ -175,7 +175,7 @@ export default function AcademicsContent() {
                 <div className="w-1/2 px-2 sm:px-12"> 
                   <div className="w-full mt-6">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6">
-                      Preschool <span className="text-gold">sireSCH</span>
+                      Preschool <span className="text-gold">sireJSH</span>
                     </h2>
                     <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
                       Begin your journey to academic excellence. We welcome
@@ -183,7 +183,7 @@ export default function AcademicsContent() {
                       discipline, integrity, and achievement.
                     </p>
                     <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                      sireSCH is a premier educational institution dedicated to
+                      sireJSH is a premier educational institution dedicated to
                       providing exceptional learning experiences. We foster a
                       nurturing environment where students can thrive academically
                       and personally.
@@ -197,7 +197,7 @@ export default function AcademicsContent() {
                 <div className="w-1/2 px-2 sm:px-12"> 
                   <div className="w-full mt-6">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6">
-                      Lower Primary <span className="text-gold">sireSCH</span>
+                      Lower Primary <span className="text-gold">sireJSH</span>
                     </h2>
                     <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
                       Begin your journey to academic excellence. We welcome
@@ -205,7 +205,7 @@ export default function AcademicsContent() {
                       discipline, integrity, and achievement.
                     </p>
                     <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                      sireSCH is a premier educational institution dedicated to
+                      sireJSH is a premier educational institution dedicated to
                       providing exceptional learning experiences. We foster a
                       nurturing environment where students can thrive academically
                       and personally.
@@ -257,7 +257,7 @@ export default function AcademicsContent() {
                 <div className="w-1/2 px-2 sm:px-12"> 
                   <div className="w-full mt-6">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6">
-                      Upper Primary <span className="text-gold">sireSCH</span>
+                      Upper Primary <span className="text-gold">sireJSH</span>
                     </h2>
                     <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
                       Begin your journey to academic excellence. We welcome
@@ -265,7 +265,7 @@ export default function AcademicsContent() {
                       discipline, integrity, and achievement.
                     </p>
                     <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                      sireSCH is a premier educational institution dedicated to
+                      sireJSH is a premier educational institution dedicated to
                       providing exceptional learning experiences. We foster a
                       nurturing environment where students can thrive academically
                       and personally.
@@ -279,7 +279,7 @@ export default function AcademicsContent() {
                 <div className="w-1/2 px-2 sm:px-12"> 
                   <div className="w-full mt-6">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6">
-                      Secondary <span className="text-gold">sireSCH</span>
+                      Secondary <span className="text-gold">sireJSH</span>
                     </h2>
                     <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
                       Begin your journey to academic excellence. We welcome
@@ -287,7 +287,7 @@ export default function AcademicsContent() {
                       discipline, integrity, and achievement.
                     </p>
                     <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                      sireSCH is a premier educational institution dedicated to
+                      sireJSH is a premier educational institution dedicated to
                       providing exceptional learning experiences. We foster a
                       nurturing environment where students can thrive academically
                       and personally.
@@ -472,13 +472,13 @@ export default function AcademicsContent() {
               Standards-Based <span className="text-gold">Curriculum</span>
             </h2>
             <p className="text-primary-foreground/80 text-lg mb-8 leading-relaxed">
-              sireSCH fully implements Ghana's Standards-Based Curriculum,
+              sireJSH fully implements Ghana's Standards-Based Curriculum,
               ensuring our students receive modern, competency-based education
               that meets national and international standards.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button variant="hero-gold" size="lg" asChild>
-                <Link href="/admissions">Join sireSCH</Link>
+                <Link href="/admissions">Join sireJSH</Link>
               </Button>
               <Button variant="hero" size="lg" asChild>
                 <a href="/assets/sbc.pdf" download rel="noopener noreferrer">

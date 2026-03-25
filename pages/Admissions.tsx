@@ -44,28 +44,28 @@ const successStories = [
     name: "Dr. Edem Adzogenu",
     year: "Class of 2008",
     achievement: "Medical Doctor at Korle Bu Teaching Hospital",
-    quote: "sireSCH taught me discipline and the value of hard work. The science department gave me a strong foundation that carried me through medical school.",
+    quote: "sireJSH taught me discipline and the value of hard work. The science department gave me a strong foundation that carried me through medical school.",
     program: "General Science",
   },
   {
     name: "Sena Amedorme",
     year: "Class of 2015",
     achievement: "CEO, AgriTech Ghana Ltd",
-    quote: "The business skills I learned at sireSCH, combined with our agricultural training, inspired me to start a company that helps farmers across Ghana.",
+    quote: "The business skills I learned at sireJSH, combined with our agricultural training, inspired me to start a company that helps farmers across Ghana.",
     program: "Business Studies",
   },
   {
     name: "Kafui Mensah",
     year: "Class of 2012",
     achievement: "Award-winning Journalist, GBC",
-    quote: "My love for literature and storytelling was nurtured by incredible teachers in the Arts department. sireSCH believed in me when I was just a dreamer.",
+    quote: "My love for literature and storytelling was nurtured by incredible teachers in the Arts department. sireJSH believed in me when I was just a dreamer.",
     program: "General Arts",
   },
   {
     name: "Ama Dzokoto",
     year: "Class of 2018",
     achievement: "Visual Artist, International Exhibitions",
-    quote: "The Visual Arts department at sireSCH opened my eyes to possibilities I never knew existed. Now my work is shown in galleries across Africa and Europe.",
+    quote: "The Visual Arts department at sireJSH opened my eyes to possibilities I never knew existed. Now my work is shown in galleries across Africa and Europe.",
     program: "Visual Arts",
   },
 ];
@@ -86,7 +86,7 @@ export default function AcademicsPage() {
         <div className="absolute inset-0">
           <Image
             src="/assets/science-lab.jpg"
-            alt="sireSCH Science Lab"
+            alt="sireJSH Science Lab"
             fill
             className="object-cover opacity-20"
             priority
@@ -185,7 +185,7 @@ export default function AcademicsPage() {
             </h2>
             <p className="text-muted-foreground text-lg mt-4 max-w-2xl mx-auto">
               Our alumni are making their mark across Ghana and beyond. Here are some of the incredible 
-              journeys that started in the halls of sireSCH.
+              journeys that started in the halls of sireJSH.
             </p>
           </div>
 
@@ -300,13 +300,13 @@ export default function AcademicsPage() {
               Standards-Based <span className="text-gold">Curriculum</span>
             </h2>
             <p className="text-primary-foreground/80 text-lg mb-8 leading-relaxed">
-              sireSCH fully implements Ghana's Standards-Based Curriculum, ensuring our 
+              sireJSH fully implements Ghana's Standards-Based Curriculum, ensuring our 
               students receive modern, competency-based education that meets national 
               and international standards.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button variant="hero-gold" size="lg" asChild>
-                <Link href="/admissions">Join sireSCH</Link>
+                <Link href="/admissions">Join sireJSH</Link>
               </Button>
               <Button variant="hero" size="lg" asChild>
                 <a href="/assets/sbc.pdf" download rel="noopener noreferrer">

@@ -20,7 +20,7 @@ const handleWhatsAppSubmit = (e: React.FormEvent) => {
   const subject = (form.elements.namedItem("subject") as HTMLInputElement).value;
   const message = (form.elements.namedItem("message") as HTMLTextAreaElement).value;
   
-  const whatsappMessage = `*New Admission Enquiry from sireSCH Website*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Subject:* ${encodeURIComponent(subject)}%0A*Message:* ${encodeURIComponent(message)}`;
+  const whatsappMessage = `*New Admission Enquiry from sireJSH Website*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Subject:* ${encodeURIComponent(subject)}%0A*Message:* ${encodeURIComponent(message)}`;
   
   window.open(`https://wa.me/233244546733?text=${whatsappMessage}`, '_blank');
   
@@ -35,7 +35,7 @@ const handleWhatsAppSubmit = (e: React.FormEvent) => {
     {
       icon: MapPin,
       title: "Location",
-      details: ["sireSCH Senior High School", "sireSCH, Accra-Ghana", "Ghana, West Africa"],
+      details: ["sireJSH Senior High School", "sireJSH, Accra-Ghana", "Ghana, West Africa"],
     },
     {
       icon: Phone,
@@ -55,10 +55,10 @@ const handleWhatsAppSubmit = (e: React.FormEvent) => {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "https://facebook.com/sireSCHJSH", label: "Facebook" },
-    { icon: Twitter, href: "https://twitter.com/sireSCHJSH", label: "Twitter" },
-    { icon: Instagram, href: "https://instagram.com/sireSCHJSH", label: "Instagram" },
-    { icon: Youtube, href: "https://youtube.com/@sireSCHJSH", label: "YouTube" },
+    { icon: Facebook, href: "https://facebook.com/sireJSHJSH", label: "Facebook" },
+    { icon: Twitter, href: "https://twitter.com/sireJSHJSH", label: "Twitter" },
+    { icon: Instagram, href: "https://instagram.com/sireJSHJSH", label: "Instagram" },
+    { icon: Youtube, href: "https://youtube.com/@sireJSHJSH", label: "YouTube" },
   ];
 
   return (
@@ -76,7 +76,7 @@ const handleWhatsAppSubmit = (e: React.FormEvent) => {
               Get in Touch
             </div>
             <h1 className="text-4xl md:text-5xl font-display font-bold text-primary-foreground mb-6">
-              Contact <span className="text-gold">sireSCH</span>
+              Contact <span className="text-gold">sireJSH</span>
             </h1>
             <p className="text-xl text-primary-foreground/80 leading-relaxed">
               We'd love to hear from you. Reach out with any questions about 
@@ -195,7 +195,7 @@ const handleWhatsAppSubmit = (e: React.FormEvent) => {
     allowFullScreen
     loading="lazy"
     referrerPolicy="no-referrer-when-downgrade"
-    title="sireSCH Location - Ashaiman and Tema Area"
+    title="sireJSH Location - Ashaiman and Tema Area"
   />
 </section>
       {/* Quick Links */}
@@ -204,25 +204,25 @@ const handleWhatsAppSubmit = (e: React.FormEvent) => {
           <h2 className="text-2xl font-display font-bold text-foreground mb-6">Quick Contacts</h2>
           <div className="grid sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
             <a
-              href="mailto:admissions@sireSCH.edu.gh"
+              href="mailto:admissions@sireJSH.edu.gh"
               className="p-4 bg-card rounded-xl border border-border hover:border-gold/30 transition-colors"
             >
               <h3 className="font-semibold text-foreground">Admissions</h3>
-              <p className="text-sm text-muted-foreground">admissions@sireSCH.edu.gh</p>
+              <p className="text-sm text-muted-foreground">admissions@sireJSH.edu.gh</p>
             </a>
             <a
-              href="mailto:academics@sireSCH.edu.gh"
+              href="mailto:academics@sireJSH.edu.gh"
               className="p-4 bg-card rounded-xl border border-border hover:border-gold/30 transition-colors"
             >
               <h3 className="font-semibold text-foreground">Academics</h3>
-              <p className="text-sm text-muted-foreground">academics@sireSCH.edu.gh</p>
+              <p className="text-sm text-muted-foreground">academics@sireJSH.edu.gh</p>
             </a>
             <a
-              href="mailto:support@sireSCH.edu.gh"
+              href="mailto:support@sireJSH.edu.gh"
               className="p-4 bg-card rounded-xl border border-border hover:border-gold/30 transition-colors"
             >
               <h3 className="font-semibold text-foreground">Support</h3>
-              <p className="text-sm text-muted-foreground">support@sireSCH.edu.gh</p>
+              <p className="text-sm text-muted-foreground">support@sireJSH.edu.gh</p>
             </a>
           </div>
         </div>

@@ -12,7 +12,7 @@ interface WhatsAppButtonProps {
 
 export default function WhatsAppButton({
   phoneNumber = "233244546733",
-  message = "Hello SireSCH! I have a question about your programs.",
+  message = "Hello sireJSH! I have a question about your programs.",
   position = "bottom-right",
   showTooltip = true,
 }: WhatsAppButtonProps) {

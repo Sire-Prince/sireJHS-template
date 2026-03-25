@@ -94,7 +94,7 @@ export default function AdmissionsContent() {
         title: "🎉 Application Submitted Successfully!",
         description: (
           <div className="mt-2 space-y-2">
-            <p className="font-medium">Welcome to sireSCH, {firstName}! 🙏</p>
+            <p className="font-medium">Welcome to sireJSH, {firstName}! 🙏</p>
             <div className="p-2 bg-gold/10 rounded-lg space-y-1">
               <p className="text-xs flex items-center gap-1">✨ <strong>Application ID:</strong> #{(data?.[0]?.id || 'N/A')}</p>
               <p className="text-xs">📧 Confirmation sent to: {email}</p>
@@ -116,7 +116,7 @@ export default function AdmissionsContent() {
               <p>1. Check your email for confirmation</p>
               <p>2. Prepare required documents</p>
               <p>3. Wait for assessment schedule</p>
-              <p className="text-xs mt-1">Need help? Contact admissions@sireSCH.edu.gh</p>
+              <p className="text-xs mt-1">Need help? Contact admissions@sireJSH.edu.gh</p>
             </div>
           ),
           duration: 6000,
@@ -152,7 +152,7 @@ export default function AdmissionsContent() {
         <div className="absolute inset-0">
           <Image
             src="/assets/jhs-students.jpg"
-            alt="sireSCH JHS Students"
+            alt="sireJSH JHS Students"
             fill
             className="object-cover opacity-20"
             priority
@@ -173,7 +173,7 @@ export default function AdmissionsContent() {
               Join Our <span className="text-gold">JHS Family</span>
             </h1>
             <p className="text-xl text-primary-foreground/80 leading-relaxed mb-8">
-              Begin your journey to academic excellence at sireSCH Junior High School. 
+              Begin your journey to academic excellence at sireJSH Junior High School. 
               We welcome motivated students ready to embrace learning, discipline, and integrity.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -271,7 +271,7 @@ export default function AdmissionsContent() {
               How to <span className="text-gold">Apply</span> for JHS
             </h2>
             <p className="text-muted-foreground text-lg mt-4 max-w-2xl mx-auto">
-              Follow these simple steps to secure your child's place at sireSCH Junior High School
+              Follow these simple steps to secure your child's place at sireJSH Junior High School
             </p>
           </div>
 
@@ -427,7 +427,7 @@ export default function AdmissionsContent() {
             </h2>
             <p className="text-primary-foreground/80 text-lg mb-8 leading-relaxed">
               Our admissions team is ready to answer your questions about JHS enrollment,
-              fees, and academic programs at sireSCH.
+              fees, and academic programs at sireJSH.
             </p>
 
             {/* Contact Options */}
@@ -440,7 +440,7 @@ export default function AdmissionsContent() {
                 <span>Call Admissions Office</span>
               </a>
               <a
-                href="mailto:admissions@sireSCH.edu.gh"
+                href="mailto:admissions@sireJSH.edu.gh"
                 className="flex items-center justify-center gap-2 p-4 glass rounded-xl hover:bg-primary-foreground/10 transition-colors group"
               >
                 <Mail className="w-5 h-5 text-gold group-hover:scale-110 transition-transform" />
@@ -452,7 +452,7 @@ export default function AdmissionsContent() {
             <div className="mt-8 pt-8 border-t border-white/20">
               <div className="flex items-center justify-center gap-2 text-primary-foreground/80">
                 <MapPin className="w-4 h-4 text-gold" />
-                <span>sireSCH Campus, Volta Region, Ghana</span>
+                <span>sireJSH Campus, Volta Region, Ghana</span>
               </div>
               <p className="text-sm text-primary-foreground/60 mt-4">
                 Admissions Office Hours: Monday - Friday, 8:00 AM - 4:00 PM

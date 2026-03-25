@@ -71,7 +71,7 @@ export default function FacilitiesContent() {
         <div className="absolute inset-0">
           <Image
             src="/assets/hero-campus.jpg"
-            alt="sireSCH Campus"
+            alt="sireJSH Campus"
             fill
             className="object-cover opacity-20"
             priority
@@ -223,7 +223,7 @@ export default function FacilitiesContent() {
             </h2>
             <p className="text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
               Schedule a visit to see our facilities firsthand and discover why 
-              sireSCH is the preferred choice for education in Ghana.
+              sireJSH is the preferred choice for education in Ghana.
             </p>
 
             {/* YouTube Video Embed */}
@@ -235,7 +235,7 @@ export default function FacilitiesContent() {
             >
               <iframe
                 src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0"
-                title="sireSCH Campus Tour"
+                title="sireJSH Campus Tour"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className="w-full h-full"

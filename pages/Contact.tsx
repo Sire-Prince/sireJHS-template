@@ -25,7 +25,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Location",
-      details: ["sireSCH Senior High School", "sireSCH, Accra-Ghana", "Ghana, West Africa"],
+      details: ["sireJSH Senior High School", "sireJSH, Accra-Ghana", "Ghana, West Africa"],
     },
     {
       icon: Phone,
@@ -45,10 +45,10 @@ const Contact = () => {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "https://facebook.com/sireSCHJSH", label: "Facebook" },
-    { icon: Twitter, href: "https://twitter.com/sireSCHJSH", label: "Twitter" },
-    { icon: Instagram, href: "https://instagram.com/sireSCHJSH", label: "Instagram" },
-    { icon: Youtube, href: "https://youtube.com/@sireSCHJSH", label: "YouTube" },
+    { icon: Facebook, href: "https://facebook.com/sireJSHJSH", label: "Facebook" },
+    { icon: Twitter, href: "https://twitter.com/sireJSHJSH", label: "Twitter" },
+    { icon: Instagram, href: "https://instagram.com/sireJSHJSH", label: "Instagram" },
+    { icon: Youtube, href: "https://youtube.com/@sireJSHJSH", label: "YouTube" },
   ];
 
   return (
@@ -69,7 +69,7 @@ const Contact = () => {
                   Get in Touch
                 </div>
                 <h1 className="text-4xl md:text-5xl font-display font-bold text-primary-foreground mb-6">
-                  Contact <span className="text-gold">sireSCH</span>
+                  Contact <span className="text-gold">sireJSH</span>
                 </h1>
                 <p className="text-xl text-primary-foreground/80 leading-relaxed">
                   We'd love to hear from you. Reach out with any questions about 
@@ -182,14 +182,14 @@ const Contact = () => {
           {/* Full Width Map */}
           <section className="w-full h-96">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15879.037251619652!2d0.8769!3d5.7935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1020e4f2c5a4b5c7%3A0x1234567890abcdef!2ssireSCHga%2C%20Volta%20Region%2C%20Ghana!5e0!3m2!1sen!2sgh!4v1234567890123!5m2!1sen!2sgh"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15879.037251619652!2d0.8769!3d5.7935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1020e4f2c5a4b5c7%3A0x1234567890abcdef!2ssireJSHga%2C%20Volta%20Region%2C%20Ghana!5e0!3m2!1sen!2sgh!4v1234567890123!5m2!1sen!2sgh"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="sireSCH Location Map"
+              title="sireJSH Location Map"
             />
           </section>
 
@@ -199,25 +199,25 @@ const Contact = () => {
               <h2 className="text-2xl font-display font-bold text-foreground mb-6">Quick Contacts</h2>
               <div className="grid sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
                 <a
-                  href="mailto:admissions@sireSCH.edu.gh"
+                  href="mailto:admissions@sireJSH.edu.gh"
                   className="p-4 bg-card rounded-xl border border-border hover:border-gold/30 transition-colors"
                 >
                   <h3 className="font-semibold text-foreground">Admissions</h3>
-                  <p className="text-sm text-muted-foreground">admissions@sireSCH.edu.gh</p>
+                  <p className="text-sm text-muted-foreground">admissions@sireJSH.edu.gh</p>
                 </a>
                 <a
-                  href="mailto:academics@sireSCH.edu.gh"
+                  href="mailto:academics@sireJSH.edu.gh"
                   className="p-4 bg-card rounded-xl border border-border hover:border-gold/30 transition-colors"
                 >
                   <h3 className="font-semibold text-foreground">Academics</h3>
-                  <p className="text-sm text-muted-foreground">academics@sireSCH.edu.gh</p>
+                  <p className="text-sm text-muted-foreground">academics@sireJSH.edu.gh</p>
                 </a>
                 <a
-                  href="mailto:support@sireSCH.edu.gh"
+                  href="mailto:support@sireJSH.edu.gh"
                   className="p-4 bg-card rounded-xl border border-border hover:border-gold/30 transition-colors"
                 >
                   <h3 className="font-semibold text-foreground">Support</h3>
-                  <p className="text-sm text-muted-foreground">support@sireSCH.edu.gh</p>
+                  <p className="text-sm text-muted-foreground">support@sireJSH.edu.gh</p>
                 </a>
               </div>
             </div>

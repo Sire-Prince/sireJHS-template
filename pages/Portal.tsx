@@ -75,7 +75,7 @@ const Portal = () => {
                   Secure Access
                 </div>
                 <h1 className="text-4xl md:text-5xl font-display font-bold text-primary-foreground mb-6">
-                  sireSCH <span className="text-gold">Portal</span>
+                  sireJSH <span className="text-gold">Portal</span>
                 </h1>
                 <p className="text-xl text-primary-foreground/80 leading-relaxed">
                   Access your personalized dashboard for academic information, 
