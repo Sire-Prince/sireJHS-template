@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Leaf, Beaker, Calculator, Palette, Users, Award, BookOpen, Microscope, TrendingUp, Brush } from "lucide-react";
+import { Leaf, Beaker, Calculator, Palette, Users, Award, BookOpen, TrendingUp } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -98,7 +98,7 @@ const Departments = () => {
         <Header />
         <main>
           {/* Hero Section */}
-          <section className="relative pt-32 pb-20 px-2 sm:px-12 bg-primary overflow-hidden">
+          <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-12 bg-primary overflow-hidden">
             <div className="absolute inset-0">
               <Image 
                 src="/assets/science-lab.jpg" 
@@ -108,20 +108,20 @@ const Departments = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-b from-primary/80 to-primary" />
             </div>
-            <div className="container mx-auto px-6 lg:px-8 relative z-10">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="max-w-3xl"
+                className="max-w-3xl mx-auto text-center sm:text-left"
               >
-                <div className="flex items-center gap-2 text-gold mb-4">
+                <div className="flex items-center justify-center sm:justify-start gap-2 text-gold mb-4">
                   <BookOpen className="w-5 h-5" />
                   <span className="text-sm font-medium">Departments</span>
                 </div>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6">
                   Our Academic <span className="text-gold">Departments</span>
                 </h1>
-                <p className="text-xl text-primary-foreground/80 leading-relaxed">
+                <p className="text-base sm:text-lg md:text-xl text-primary-foreground/80 leading-relaxed">
                   Four distinct departments, each with specialized faculty and resources,
                   working together to deliver comprehensive education.
                 </p>
@@ -129,100 +129,110 @@ const Departments = () => {
             </div>
           </section>
 
-          {/* Departments Grid */}
-          {departments.map((dept, index) => (
-            <section
-              key={dept.id}
-              id={dept.id}
-              className={`py-20 px-2 sm:px-12 ${index % 2 === 0 ? "bg-background" : "bg-cream"}`}
-            >
-              <div className="container mx-auto px-6 lg:px-8">
-                <div className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
-                  <motion.div
-                    initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    className={index % 2 === 1 ? "lg:order-2" : ""}
-                  >
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${dept.color} flex items-center justify-center mb-6`}>
-                      <dept.icon className="w-8 h-8 text-white" />
-                    </div>
-                    <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-                      {dept.title}
-                    </h2>
-                    <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-                      {dept.description}
-                    </p>
-
-                    <div className="flex items-center gap-6 mb-6">
-                      <div className="flex items-center gap-2">
-                        <Users className="w-5 h-5 text-gold" />
-                        <span className="text-foreground font-medium">{dept.staff} Staff Members</span>
+          {/* Departments Grid - Flex Column Layout */}
+          <div className="flex flex-col">
+            {departments.map((dept, index) => (
+              <section
+                key={dept.id}
+                id={dept.id}
+                className={`py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-12 ${
+                  index % 2 === 0 ? "bg-background" : "bg-cream"
+                }`}
+              >
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                  <div className="flex flex-col lg:flex-row gap-8 md:gap-12 items-stretch">
+                    {/* Left Column - Content */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5 }}
+                      className="flex-1"
+                    >
+                      <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br ${dept.color} flex items-center justify-center mb-4 sm:mb-6`}>
+                        <dept.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Award className="w-5 h-5 text-gold" />
-                        <span className="text-foreground font-medium">HOD: {dept.hod}</span>
+                      <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-foreground mb-3 sm:mb-4">
+                        {dept.title}
+                      </h2>
+                      <p className="text-muted-foreground text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed">
+                        {dept.description}
+                      </p>
+
+                      <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 mb-4 sm:mb-6">
+                        <div className="flex items-center gap-2">
+                          <Users className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
+                          <span className="text-foreground text-sm sm:text-base font-medium">{dept.staff} Staff Members</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Award className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
+                          <span className="text-foreground text-sm sm:text-base font-medium">HOD: {dept.hod}</span>
+                        </div>
                       </div>
-                    </div>
 
-                    <h3 className="text-lg font-semibold text-foreground mb-3">Department Highlights</h3>
-                    <ul className="space-y-2 mb-6">
-                      {dept.highlights.map((highlight, i) => (
-                        <li key={i} className="flex items-start gap-2 text-muted-foreground">
-                          <div className="w-1.5 h-1.5 rounded-full bg-gold mt-2 flex-shrink-0" />
-                          {highlight}
-                        </li>
-                      ))}
-                    </ul>
-                  </motion.div>
+                      <h3 className="text-base sm:text-lg font-semibold text-foreground mb-2 sm:mb-3">Department Highlights</h3>
+                      <ul className="space-y-1.5 sm:space-y-2 mb-6">
+                        {dept.highlights.map((highlight, i) => (
+                          <li key={i} className="flex items-start gap-2 text-muted-foreground text-sm sm:text-base">
+                            <div className="w-1.5 h-1.5 rounded-full bg-gold mt-1.5 sm:mt-2 flex-shrink-0" />
+                            <span>{highlight}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
 
-                  <motion.div
-                    initial={{ opacity: 0, x: index % 2 === 0 ? 30 : -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    className={`bg-card rounded-2xl p-8 border border-border shadow-soft ${index % 2 === 1 ? "lg:order-1" : ""}`}
-                  >
-                    <div className="flex items-center gap-2 mb-6">
-                      <Award className="w-5 h-5 text-gold" />
-                      <h3 className="text-lg font-semibold text-foreground">Recent Achievements</h3>
-                    </div>
-                    <ul className="space-y-4">
-                      {dept.achievements.map((achievement, i) => (
-                        <li key={i} className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
-                          <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${dept.color} flex items-center justify-center flex-shrink-0`}>
-                            <TrendingUp className="w-4 h-4 text-white" />
-                          </div>
-                          <span className="text-foreground">{achievement}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </motion.div>
+                    {/* Right Column - Achievements Card */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: 0.2 }}
+                      className="flex-1"
+                    >
+                      <div className="bg-card rounded-2xl p-5 sm:p-6 md:p-8 border border-border shadow-soft h-full">
+                        <div className="flex items-center gap-2 mb-4 sm:mb-6">
+                          <Award className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
+                          <h3 className="text-base sm:text-lg font-semibold text-foreground">Recent Achievements</h3>
+                        </div>
+                        <ul className="space-y-3 sm:space-y-4">
+                          {dept.achievements.map((achievement, i) => (
+                            <li key={i} className="flex items-start gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg bg-muted/50">
+                              <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br ${dept.color} flex items-center justify-center flex-shrink-0 mt-0.5`}>
+                                <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                              </div>
+                              <span className="text-foreground text-sm sm:text-base flex-1">{achievement}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </motion.div>
+                  </div>
                 </div>
-              </div>
-            </section>
-          ))}
+              </section>
+            ))}
+          </div>
 
           {/* CTA Section */}
-          <section className="py-20 px-2 sm:px-12 bg-primary text-primary-foreground">
-            <div className="container mx-auto px-6 lg:px-8 text-center">
+          <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-12 bg-primary text-primary-foreground">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 className="max-w-2xl mx-auto"
               >
-                <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-4 sm:mb-6">
                   Find Your <span className="text-gold">Path</span>
                 </h2>
-                <p className="text-primary-foreground/80 text-lg mb-8">
+                <p className="text-primary-foreground/80 text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed">
                   Not sure which department is right for you? Our admissions team can help guide you 
                   to the program that best matches your interests and career goals.
                 </p>
-                <div className="flex flex-wrap justify-center gap-4">
-                  <Button variant="hero-gold" size="lg" asChild>
+                <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+                  <Button variant="hero-gold" size="lg" asChild className="w-full sm:w-auto">
                     <Link href="/admissions">Apply Now</Link>
                   </Button>
-                  <Button variant="hero" size="lg" asChild>
+                  <Button variant="hero" size="lg" asChild className="w-full sm:w-auto">
                     <Link href="/contact">Contact Us</Link>
                   </Button>
                 </div>
